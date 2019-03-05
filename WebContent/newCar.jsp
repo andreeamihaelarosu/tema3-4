@@ -39,13 +39,13 @@
  	  select = "Select * from cars";
       insert = "insert into cars values(?,?,?,?,?,?,?)";
       ps = db.getConn().prepareStatement(insert);
-      ps.setInt(1, 3);//(Integer) session.getAttribute("id"));
-      ps.setString(2, "\""+session.getAttribute("make").toString() + "\"");
-      ps.setString(3, "\""+session.getAttribute("model").toString() + "\"");
-      ps.setString(4, "\""+session.getAttribute("gear").toString() + "\"");
-      ps.setString(5, "\""+session.getAttribute("fuel").toString() + "\"");
-      ps.setInt(6, 2015);// (Integer) session.getAttribute("year"));
-      ps.setInt(7, 15000);//(Integer) session.getAttribute("price"));
+      ps.setInt(1, Integer.parseInt(session.getAttribute("id").toString()));
+      ps.setString(2, session.getAttribute("make").toString());
+      ps.setString(3, session.getAttribute("model").toString());
+      ps.setString(4, session.getAttribute("gear").toString());
+      ps.setString(5, session.getAttribute("fuel").toString());
+      ps.setInt(6, Integer.parseInt(session.getAttribute("year").toString()));
+      ps.setInt(7, Integer.parseInt(session.getAttribute("price").toString()));
       try {
 			ps.executeUpdate();
 			db.getConn().commit();
