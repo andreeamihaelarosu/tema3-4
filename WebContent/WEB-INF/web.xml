@@ -39,6 +39,46 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>quizQ2</servlet-name>
+    <url-pattern>/Q3</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>quizQ3</servlet-name>
+    <servlet-class>servletContainer.quizQ3</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>quizQ3</servlet-name>
     <url-pattern>/Results</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>carQ1</servlet-name>
+    <servlet-class>servletContainer.carQ1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>carQ1</servlet-name>
+    <url-pattern>/C2</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>carQ2</servlet-name>
+    <servlet-class>servletContainer.carQ2</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>carQ2</servlet-name>
+    <url-pattern>/C3</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>carQ3</servlet-name>
+    <servlet-class>servletContainer.carQ3</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>carQ3</servlet-name>
+    <url-pattern>/C4</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>carQ4</servlet-name>
+    <servlet-class>servletContainer.carQ4</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>carQ4</servlet-name>
+    <url-pattern>/CarResults</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -29,8 +29,19 @@
 	<span>. This is INCORRECT. The right answer is "see". </span><br><br>
 	<% } %>
 	
+	<span> Your third answer was: <%= session.getAttribute("answer3") %></span>
+	
 	<% 
-	if(session.getAttribute("answer2").equals("see")&&session.getAttribute("answer1").equals("live"))
+	if(session.getAttribute("answer3").equals("Were"))
+	{
+	%> 	
+	<span>. This is CORRECT. </span><br><br>	
+	<% } else { %>
+	<span>. This is INCORRECT. The right answer is "were". </span><br><br>
+	<% } %>
+	
+	<% 
+	if(session.getAttribute("answer3").equals("Were")&&session.getAttribute("answer2").equals("see")&&session.getAttribute("answer1").equals("live"))
 	{
 	%> 	
 	<span> Your English grammar rocks. </span><br><br>	

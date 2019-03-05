@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class quizQ2
+ * Servlet implementation class carQ3
  */
-@WebServlet("/quizQ2")
-public class quizQ2 extends HttpServlet {
+@WebServlet("/carQ3")
+public class carQ3 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public quizQ2() {
+    public carQ3() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,8 +34,9 @@ public class quizQ2 extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String a2 = request.getParameter("answer2");
-		request.getSession().setAttribute("answer2", a2);
-		response.sendRedirect("/AR_WebApp/question3.html");
+		String y = request.getParameter("year");
+		request.getSession().setAttribute("year", y);
+		response.sendRedirect("/AR_WebApp/pref4.html");
 	}
+
 }

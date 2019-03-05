@@ -51,13 +51,13 @@ public class Endpoint1 extends HttpServlet {
 		String URI = "";
 		String response = "";
 		if(t.getQueryString() == null) {
-			response = "<html><body><h1>Welcome to my simple server! </h1><p>1. <a href=\"http://localhost:8080/AR_WebApp/SelectGenre\">Get available books </a> by genre.</p><p>2. <a href=\"http://localhost:8080/AR_WebApp/TableParams\">Display parameters</a> in table.</p><p>3. <a href=\"http://localhost:8080/AR_WebApp/ExportParams\">Export parameters</a> to a txt file.</p>4. <a href=\"http://localhost:8080/AR_WebApp/DatabaseOps\">Database Operations</a></p><br><br>"
-					+ "<form action=\"Login\" method=\"POST\"><input type=\"submit\" value=\"Login\"></form></body></html>";
+			response = "<html><body><h1>Welcome to my simple server! </h1><p>1. <a href=\"http://localhost:8080/AR_WebApp/SelectGenre\">Get available books </a> by genre.</p><p>2. <a href=\"http://localhost:8080/AR_WebApp/TableParams\">Display parameters</a> in table.</p><p>3. <a href=\"http://localhost:8080/AR_WebApp/ExportParams\">Export parameters</a> to a txt file.</p><br><br>"
+					+ "<form action=\"Login\" method=\"POST\"><input type=\"submit\" value=\"Login page\"></form></body></html>";
 		}
 		else {
 			URI = t.getQueryString();
-			response = "<html><body><h1>Welcome to my simple server! </h1><p>1. <a href=\"http://localhost:8080/AR_WebApp/SelectGenre\">Get available books </a> by genre.</p><p>2. <a href=\"http://localhost:8080/AR_WebApp/TableParams?"+URI+"\">Display parameters</a> in table.</p><p>3. <a href=\"http://localhost:8080/AR_WebApp/ExportParams/?"+URI+"\">Export parameters</a> to a txt file.</p><p>4. <a href=\"http://localhost:8080/AR_WebApp/DatabaseOps\">Database Operations</a></p><br><br>"
-					+ "<form action=\"Login\" method=\"POST\"><input type=\"submit\" value=\"Login\"></form></body></html>";
+			response = "<html><body><h1>Welcome to my simple server! </h1><p>1. <a href=\"http://localhost:8080/AR_WebApp/SelectGenre\">Get available books </a> by genre.</p><p>2. <a href=\"http://localhost:8080/AR_WebApp/TableParams?"+URI+"\">Display parameters</a> in table.</p><p>3. <a href=\"http://localhost:8080/AR_WebApp/ExportParams?"+URI+"\">Export parameters</a> to a txt file.</p><br><br>"
+					+ "<form action=\"Login\" method=\"POST\"><input type=\"submit\" value=\"Login page\"></form></body></html>";
 		}
 		return response;
 	}

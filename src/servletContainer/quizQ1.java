@@ -36,7 +36,6 @@ public class quizQ1 extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String a1 = request.getParameter("answer1");
 		request.getSession().setAttribute("answer1", a1);
-		System.out.println("quizQ1");
 		response.sendRedirect("/AR_WebApp/question2.html");
 	}
 
