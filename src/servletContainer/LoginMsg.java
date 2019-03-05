@@ -61,7 +61,8 @@ public class LoginMsg extends HttpServlet {
 	 		  if (rs.getString("password").equals(t.getParameter("pswd"))) {
 	 			  response = "<html><body><h2>Login successful</h2><h3>What would you like to do today?</h3>"
 	 			  		+ "<form action=\"question1.html\" method=\"POST\"><input type=\"submit\" value=\"English Quiz\"></form>"
-	 					+ "<form action=\"pref1.html\" method=\"POST\\\"><input type=\"submit\" value=\"Buy Car        \"></form>"
+	 					+ "<form action=\"pref1.html\" method=\"POST\"><input type=\"submit\" value=\"Choose car  \"></form>"
+	 					+ "<form action=\"newCar.html\" method=\"POST\"><input type=\"submit\" value=\"Add car        \"></form>"
 	 			  		+ "<br><br><p><a href=\"http://localhost:8080/AR_WebApp/api1\">Home</a></p></body></html>";
 	 			  break;
 	 		  } else {

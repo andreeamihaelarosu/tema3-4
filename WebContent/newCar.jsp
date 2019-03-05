@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Available cars</title>
+<title>Insert results</title>
 </head>
 <body>
 
@@ -18,11 +18,11 @@
 	<%@ page import="java.sql.DriverManager"%>
 	<%@ page import="java.sql.ResultSet"%>
 	<%@ page import="java.sql.Statement"%>
+	<%@ page import="java.sql.PreparedStatement"%>
 	
 	<%
 	DBConnection db = new DBConnection();
 	try {
-	  //System.out.println("Email: " + t.getParameter("email") + " pswd: "+ t.getParameter("pswd"));
 	  Class.forName("com.mysql.cj.jdbc.Driver");
  	  db.setConn(DriverManager.getConnection("jdbc:mysql://localhost:3306/javacourse","root",""));
  	  if (db.getConn().isValid(10)) {
@@ -31,14 +31,14 @@
  			  System.out.println("Connection to MySQL 'javacourse' database has failed");
  			  }
  	  Statement statement = db.getConn().createStatement();
- 	  String select,make,model;
-      select = "Select * from cars "+
- 			  "where fuel=\"" + session.getAttribute("fuel") + "\" " +
- 			  "and gear=\"" + session.getAttribute("gear") + "\" " +
- 			  " and year>=" + session.getAttribute("year")+
+ 	  String insert,make,model;
+      insert = "insert into cars values("+
+ 			  "\"" + session.getAttribute("fuel") + "\" " +
+ 			  "\"" + session.getAttribute("gear") + "\" " +
+ 			  "\"" + session.getAttribute("year")+
  			  " and price<=" + session.getAttribute("price");
- 	  System.out.println(select);
- 	  ResultSet rs = statement.executeQuery(select);
+ 	  System.out.println(insert);
+ 	  ResultSet rs = statement.executeQuery(insert);
  	  if(!rs.next()){
  		 System.out.println("No Data Found");
  		 %> <h3> There are no available cars matching your criteria. </h3> 
@@ -63,8 +63,8 @@
      	   System.out.println("Connection to MySQL 'javacourse' database has failed");
     }
 	%>
-	<button onclick = "window.location.href = '/AR_WebApp/pref1.html' "> Try again </button><br><br>
-	<button onclick = "window.location.href = '/AR_WebApp/api1' "> Home </button>
+	<button onclick = "window.location.href = '/AR_WebApp/newCar.html' "> Add new </button><br><br>
+	<button onclick = "window.location.href = '/AR_WebApp/LoginMsg2' "> Home </button>
 			
 </body>
 </html>

@@ -50,7 +50,7 @@
 	<button onclick = "window.location.href = '/AR_WebApp/question1.html' "> Try again </button><br><br>
 	<% } %>
 	
-	<button onclick = "window.location.href = '/AR_WebApp/api1' "> Home </button>
+	<button onclick = "window.location.href = '/AR_WebApp/LoginMsg2' "> Home </button>
 			
 </body>
 </html>
