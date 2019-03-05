@@ -19,7 +19,10 @@
 	<%@ page import="java.sql.ResultSet"%>
 	<%@ page import="java.sql.Statement"%>
 	<%@ page import="java.sql.PreparedStatement"%>
+	<%@ page import="java.sql.SQLException"%>
 	
+	<h3>Available cars in the system:</h3>
+ 	  	  <table style='width:40%' border='1px'><tr><th>ID</th><th>Producer</th><th>Model</th><th>Gear</th><th>Fuel</th><th>Year</th><th>Price</th></tr><tr><td>  
 	<%
 	DBConnection db = new DBConnection();
 	try {
@@ -31,28 +34,40 @@
  			  System.out.println("Connection to MySQL 'javacourse' database has failed");
  			  }
  	  Statement statement = db.getConn().createStatement();
- 	  String insert,make,model;
-      insert = "insert into cars values("+
- 			  "\"" + session.getAttribute("fuel") + "\" " +
- 			  "\"" + session.getAttribute("gear") + "\" " +
- 			  "\"" + session.getAttribute("year")+
- 			  " and price<=" + session.getAttribute("price");
- 	  System.out.println(insert);
- 	  ResultSet rs = statement.executeQuery(insert);
+ 	  PreparedStatement ps;
+ 	  String select,insert,make,model;
+ 	  select = "Select * from cars";
+      insert = "insert into cars values(?,?,?,?,?,?,?)";
+      ps = db.getConn().prepareStatement(insert);
+      ps.setInt(1, 3);//(Integer) session.getAttribute("id"));
+      ps.setString(2, "\""+session.getAttribute("make").toString() + "\"");
+      ps.setString(3, "\""+session.getAttribute("model").toString() + "\"");
+      ps.setString(4, "\""+session.getAttribute("gear").toString() + "\"");
+      ps.setString(5, "\""+session.getAttribute("fuel").toString() + "\"");
+      ps.setInt(6, 2015);// (Integer) session.getAttribute("year"));
+      ps.setInt(7, 15000);//(Integer) session.getAttribute("price"));
+      try {
+			ps.executeUpdate();
+			db.getConn().commit();
+			ps.close();	
+	  } catch (SQLException e) {
+			String theError = e.getSQLState();
+		    System.out.println( "Can't insert rows in table: " + theError );
+		}
+	  ResultSet rs = statement.executeQuery(select);
  	  if(!rs.next()){
  		 System.out.println("No Data Found");
- 		 %> <h3> There are no available cars matching your criteria. </h3> 
+ 		 %> <h3> There are no available cars right meow. </h3> 
  		 <%
  	  } else do {
  		 %>
- 	 	  <h3>Available cars matching your preferences:</h3>
- 	  	  <table style='width:40%' border='1px'><tr><th>ID</th><th>Producer</th><th>Model</th><th>Year</th><th>Price</th></tr><tr><td>  
  	 	  <tr><td><%= rs.getString("id") %></td>
  	 	  <td><%= rs.getString("make") %></td>
  	 	  <td><%= rs.getString("model") %></td>
+ 	 	  <td><%= rs.getString("gear") %></td>
+ 	 	  <td><%= rs.getString("fuel") %></td>
  	 	  <td><%= rs.getString("year") %></td>
  	 	  <td><%= rs.getString("price") %></td></tr>
- 	 	  </table><br>
  	 	  <% 		  
  	  } while(rs.next()) ; 	    
  	  
@@ -63,6 +78,7 @@
      	   System.out.println("Connection to MySQL 'javacourse' database has failed");
     }
 	%>
+	</table><br>
 	<button onclick = "window.location.href = '/AR_WebApp/newCar.html' "> Add new </button><br><br>
 	<button onclick = "window.location.href = '/AR_WebApp/LoginMsg2' "> Home </button>
 			

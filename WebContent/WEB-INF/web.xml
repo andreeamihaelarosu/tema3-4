@@ -81,4 +81,12 @@
     <servlet-name>carQ4</servlet-name>
     <url-pattern>/CarResults</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>NewCar</servlet-name>
+    <servlet-class>servletContainer.NewCar</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NewCar</servlet-name>
+    <url-pattern>/NC</url-pattern>
+  </servlet-mapping>
 </web-app>
